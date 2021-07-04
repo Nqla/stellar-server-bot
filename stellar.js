@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] }); 
 const prefix = '!'
-const token = 'ODYwMDEzNzgxNTUxMjg0MjM0.YN1EPw.2I6ADKHdpe0PV5UfafS-WsG683g';
+const token = 'token';
 
 const channelID = `859970300971974686`
 const { content } = message;
@@ -59,11 +59,8 @@ client.on('ready', () => {
 
 });
 
-var EventEmitter = require('events'); 
-const emitter = new EventEmitter()
-client.setMaxListeners(0)
 
-client.login('ODYwMDEzNzgxNTUxMjg0MjM0.YN1EPw.2I6ADKHdpe0PV5UfafS-WsG683g');
+client.login('token');
 
 
 client.on(
