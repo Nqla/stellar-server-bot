@@ -6,21 +6,10 @@ const token = 'token';
 const channelID = `859970300971974686`
 const { content } = message;
 
-const yellow = message.guild.roles.cache.find(role => role.id === "860664627598721055")
-const red = message.guild.roles.cache.find(role => role.id === "860668078467317780")
-const green = message.guild.roles.cache.find(role => role.id === "860667998516150304")
-const blue = message.guild.roles.cache.find(role => role.id === "860664627258851358")
-
 const emojired = '🔴';
 const emojiyellow = '🟡';
 const emojigreen = '🟢';
 const emojiblue = '🔵';
-
-const bw = message.guild.roles.cache.find(role => role.id === "860663187812122634")
-const sw = message.guild.roles.cache.find(role => role.id === "860663189984247828")
-const sb = message.guild.roles.cache.find(role => role.id === "860663199413960714")
-const othergame = message.guild.roles.cache.find(role => role.id === "860663200148094976")
-const duel = message.guild.roles.cache.find(role => role.id === "860663198591483924")
 
 const emojibw = '<:s_bedwars:860432044480004097>';
 const emojisw = '<:s_skywars:860432202634362910>';
@@ -28,26 +17,13 @@ const emojisb = '<:s_skyblock:860432234438983681>';
 const emojiother = '<:s_othergame:860432259130851338>';
 const emojiduel = '<:s_duels:860633590500294697>';
 
-const male = message.guild.roles.cache.find(role => role.id === "860663200843825162")
-const female = message.guild.roles.cache.find(role => role.id === "860664625535385610")
-const other = message.guild.roles.cache.find(role => role.id === "860664626223775795")
-
 const emojimale = '♂️';
 const emojifemale = '♀️';
 const emojiother = '❓';
 
-const event = message.guild.roles.cache.find(role => role.id === "860696003727720448")
-const giveaway = message.guild.roles.cache.find(role => role.id === "860696094543577128")
-const tournament = message.guild.roles.cache.find(role => role.id === "860696150658646036")
-
 const emojievent = '🗓️';
 const emojigiveaway = '🏆';
 const emojitournament = '🎁';
-
-const age1 = message.guild.roles.cache.find(role => role.id === "860394805162147871")
-const age2 = message.guild.roles.cache.find(role => role.id === "860394809511378956")
-const age3 = message.guild.roles.cache.find(role => role.id === "860663144128577576")
-const age4 = message.guild.roles.cache.find(role => role.id === "860663184876109835")
 
 const emojiage1 = '👶';
 const emojiage2 = '👦';
@@ -57,76 +33,33 @@ const emojiage4 = '🧓';
 client.on('ready', () => {
     console.log('ready!')
 
-});
-                
-
-client.on('message', msg=> {
-    if(msg.content.startsWith('!embed')) {
-    let announceEmbed = new Discord.MessageEmbed()
-	.setColor('000000')
-    .setFooter('Founded by Nytino and Jordan')
-    .setAuthor('Welcome To Stellar!')
-	.setTitle('Server Rules')
-    .setThumbnail('https://cdn.discordapp.com/attachments/800166259786383412/860376106522902548/a31b5f8584fc8294d01cb767c1fde837.png')
-    .setDescription("<:blackheart:860018062303297536> Respect all members and be kind, a friendly environment is important for a community. \n \n <:blackheart:860018062303297536> Refrain from public shaming, if you believe someone is breaking the rules take it up with staff. \n \n <:blackheart:860018062303297536> Any kind of harrassment, abuse, or discrimination for any reason is not allowed.  \n \n <:blackheart:860018062303297536> Don't spam. This includes messages, reactions, swearing, and emojis. \n \n <:blackheart:860018062303297536> Avoid pinging members of the staff team without reason, instead create a support ticket. \n \n <:blackheart:860018062303297536> Make sure you are using channels for their intended purposes, (etc. pictures in media). \n \n <:blackheart:860018062303297536> Please remain appropriate if you are using our Discord, we want to provide a safe environment for everyone. \n \n <:blackheart:860018062303297536> Advertising any social media and other communities is not allowed, though there are execptions.  \n \n <:blackheart:860018062303297536> Do not publicly share personal information in any way, regardless of who's it is. \n \n <:blackheart:860018062303297536> The word of staff is final, though you can appeal any decision made.")
-    client.channels.cache.get(`859970152699002902`).send(announceEmbed)
-    }})
-
-
-client.on('message', msg=> {
-    if(msg.content.startsWith('!tos')) {
-    let announceEmbed = new Discord.MessageEmbed()
-    .setColor('000000')
-    .setTitle('TOS Warning')
-    .setDescription("Due to Discord's Terms of Service and Community Guidelines, anyone stating they are under 13 years of age will be banned permanently. Jokes included, this is a no tolerance policy on the Discord. https://discord.com/terms")
-    client.channels.cache.get(`859970152699002902`).send(announceEmbed)
-    
-    }});
-
-
-
-    client.on('message', async message => {
-        const channelID = `859970152699002902`
-        const role = message.guild.roles.cache.find(role => role.id === "860024909206913064")
-        const emoji = '<:blackcheck:860030354093113364>';
-        if(message.content.startsWith('!verify')) {
-        let embed = new Discord.MessageEmbed()
-        .setColor('000000')
-        .setTitle('Verification')
-        .setDescription('React with the emoji below to gain access to the rest of the server! \n \n Note: It may take a while for you to receive the role after reacting. If you dont get the verified role immediately, the time of waiting will most likely only take up to a minute. \n \n Warning: Please DO NOT spam the reaction emoji.')
-        client.channels.cache.get(`859970152699002902`).send(embed).then(message => {
-            message.react(emoji)
-
-        client.on('messageReactionAdd', async (reaction, user) => {
-            if (reaction.message.partial) await reaction.message.fetch();
-            if (reaction.partial) await reaction.fetch();
-            if (!user.client) return;
-            if (!reaction.message.guild) return;
-            if (reaction.message.channel.id == channelID) {
-                if (reaction.emoji.name === 'blackcheck') {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(role)
-                    client.channels.cache.get(`860019323178188840`)
-                }
-                
-        client.on('messageReactionRemove', async (reaction, user) => {
-            if (reaction.message.partial) await reaction.message.fetch();
-            if (reaction.partial) await reaction.fetch();
-            if (!user.client) return;
-            if (!reaction.message.guild) return;
-            if (reaction.message.channel.id == channelID) {
-                if (reaction.emoji.name === 'blackcheck') {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(role)
-            } else {
-                return;
-            }
-        }
-
-    })}})})}});
-
-    
-
+});    
 
 client.on('message', async message => {
+
+const yellow = message.guild.roles.cache.find(role => role.id === "860664627598721055")
+const red = message.guild.roles.cache.find(role => role.id === "860668078467317780")
+const green = message.guild.roles.cache.find(role => role.id === "860667998516150304")
+const blue = message.guild.roles.cache.find(role => role.id === "860664627258851358")
+
+const bw = message.guild.roles.cache.find(role => role.id === "860663187812122634")
+const sw = message.guild.roles.cache.find(role => role.id === "860663189984247828")
+const sb = message.guild.roles.cache.find(role => role.id === "860663199413960714")
+const othergame = message.guild.roles.cache.find(role => role.id === "860663200148094976")
+const duel = message.guild.roles.cache.find(role => role.id === "860663198591483924")
+
+const male = message.guild.roles.cache.find(role => role.id === "860663200843825162")
+const female = message.guild.roles.cache.find(role => role.id === "860664625535385610")
+const other = message.guild.roles.cache.find(role => role.id === "860664626223775795")
+
+const event = message.guild.roles.cache.find(role => role.id === "860696003727720448")
+const giveaway = message.guild.roles.cache.find(role => role.id === "860696094543577128")
+const tournament = message.guild.roles.cache.find(role => role.id === "860696150658646036")
+
+const age1 = message.guild.roles.cache.find(role => role.id === "860394805162147871")
+const age2 = message.guild.roles.cache.find(role => role.id === "860394809511378956")
+const age3 = message.guild.roles.cache.find(role => role.id === "860663144128577576")
+const age4 = message.guild.roles.cache.find(role => role.id === "860663184876109835")
 
     client.on('messageReactionAdd', async (reaction, user) => {
         if (reaction.message.partial) await reaction.message.fetch();
