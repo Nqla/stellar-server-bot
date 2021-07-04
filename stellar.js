@@ -61,20 +61,6 @@ client.on('ready', () => {
 
 
 client.login('token');
-
-
-client.on(
-  'messageReactionAdd',
-  async (potentialPartialReaction, potentialPartialUser) => {
-    try {
-      const reaction = await potentialPartialReaction.fetch();
-      const user = await potentialPartialUser.fetch();
-    } catch (err) {
-      console.log(err);
-    }
-
-    // can use reaction and user here!
-});
                 
 
 client.on('message', msg=> {
