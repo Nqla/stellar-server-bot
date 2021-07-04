@@ -58,9 +58,6 @@ client.on('ready', () => {
     console.log('ready!')
 
 });
-
-
-client.login('token');
                 
 
 client.on('message', msg=> {
@@ -368,3 +365,5 @@ client.on('message', async message => {
         message.react(emojiage4)
         
     }})}}}}}})}); 
+
+client.login('token');
